@@ -22,28 +22,28 @@ Here's an example:
 # You can immediately read and write pins, if they aren't configured they will
 # be setup automatically for the requested mode.
 #
-pin_high 13	# Set pin13 high
-pin_low 13	# Set pin13 low
-pin_read 14	# Echo pin14 value to stdout
+pin_high 13     # Set pin13 high
+pin_low 13      # Set pin13 low
+pin_read 14     # Echo pin14 value to stdout
 
 #
 # Or you can do it manually.
 #
-pin_output 13	# Enable pin13 and set it as read/write
-pin_input 14	# Enable pin14 and set it as read-only
-pin_output 14	# Switch pin14 to read/write
-pin_disable 14	# Unconfigure pin14
+pin_output 13   # Enable pin13 and set it as read/write
+pin_input 14    # Enable pin14 and set it as read-only
+pin_output 14   # Switch pin14 to read/write
+pin_disable 14  # Unconfigure pin14
 
 #
 # Clock cycling functions.
 #
-cyclepin 14	# Set pin14 high then low
-cyclepins 13 14	# set pin13 high, pin14 high, pin13 low, pin14 low
+cyclepin 14     # Set pin14 high then low
+cyclepins 13 14 # set pin13 high, pin14 high, pin13 low, pin14 low
 
 #
 # Hex <=> Binary conversions.
 #
-bin2hex 101010	# => "0x2a"
-hex2bin8 0x2a	# => "00101010"
-hex2bin12 0x2a	# => "000000101010"
+bin2hex 101010  # => "0x2a"
+hex2bin8 0x2a   # => "00101010"
+hex2bin12 0x2a  # => "000000101010"
 ```
