@@ -38,7 +38,7 @@ pin_disable 14  # Unconfigure pin14
 # Clock cycling functions.
 #
 cyclepin 14     # Set pin14 high then low
-cyclepins 13 14 # set pin13 high, pin14 high, pin13 low, pin14 low
+cyclepins 13 14 # Set pin13 high, pin14 high, pin13 low, pin14 low
 
 #
 # Hex <=> Binary conversions.
