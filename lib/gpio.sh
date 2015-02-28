@@ -66,9 +66,7 @@ pin_set()
 	pin=$1; shift
 	val=$1; shift
 
-	if [ ! -f ${GPIO}/gpio${pin}/value ]; then
-		pin_output ${pin}
-	fi
+	pin_output ${pin}
 
 	echo ${val} >${GPIO}/gpio${pin}/value
 }
