@@ -57,6 +57,8 @@ pin_read()
 {
 	pin=$1; shift
 
+	pin_input ${pin}
+
 	echo $(<${GPIO}/gpio${pin}/value)
 }
 pin_set()
