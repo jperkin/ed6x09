@@ -113,8 +113,16 @@ bin2hex()
 }
 hex2bin()
 {
-	bits=$1; shift
-	hex=$(echo $1 | tr a-z A-Z); shift
+	if [ $# -eq 1 ]; then
+		bits=""
+		hex=$1; shift
+	else
+		bits=$1; shift
+		hex=$1; shift
+	fi
+
+	# dc(1) requires hex to be uppercase.
+	hex=$(echo ${hex} | tr a-z A-Z)
 
 	printf "%0${bits}d\n" $(echo "16 i 2 o ${hex} p" | dc);
 }
