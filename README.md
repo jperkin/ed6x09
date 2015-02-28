@@ -43,7 +43,8 @@ cyclepins 13 14 # set pin13 high, pin14 high, pin13 low, pin14 low
 #
 # Hex <=> Binary conversions.
 #
-bin2hex 101010  # => "0x2a"
-hex2bin8 0x2a   # => "00101010"
-hex2bin12 0x2a  # => "000000101010"
+bin2hex 101010  # Print at default precision: "0x2a"
+hex2bin 0x2a    # Print at default precision: "101010"
+hex2bin 8 0x2a  # Pad to specific precision: "00101010"
+hex2bin 3 0x2a  # Truncate to specific precision: "010"
 ```

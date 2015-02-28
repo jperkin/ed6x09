@@ -33,7 +33,7 @@ done
 #
 write_address()
 {
-	bits=$(hex2bin3 $1 | rev)
+	bits=$(hex2bin 3 $1 | rev)
 	a=0
 	for bit in $(echo ${bits} | fold -w 1); do
 		pin_set ${addrpins[${a}]} ${bit}
@@ -59,7 +59,7 @@ write_data()
 		pin_output ${pin}
 	done
 
-	bits=$(hex2bin8 $1 | rev)
+	bits=$(hex2bin 8 $1 | rev)
 	d=0
 	for bit in $(echo ${bits} | fold -w 1); do
 		pin_set ${datapins[${d}]} ${bit}

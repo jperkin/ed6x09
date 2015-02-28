@@ -114,7 +114,7 @@ bin2hex()
 hex2bin()
 {
 	if [ $# -eq 1 ]; then
-		bits=""
+		bits=0
 		hex=$1; shift
 	else
 		bits=$1; shift
@@ -124,17 +124,25 @@ hex2bin()
 	# dc(1) requires hex to be uppercase.
 	hex=$(echo ${hex} | tr a-z A-Z)
 
-	printf "%0${bits}d\n" $(echo "16 i 2 o ${hex} p" | dc);
-}
-hex2bin12()
-{
-	hex2bin 12 $1
-}
-hex2bin8()
-{
-	hex2bin 8 $1
-}
-hex2bin3()
-{
-	hex2bin 3 $1
+	# Pad or truncate to the requested bit length.
+	echo "16 i 2 o ${hex} p" | dc | awk '
+		BEGIN {
+			width = '${bits}'
+		}
+		# Print at default precision.
+		width == 0 || width == length($0) {
+			print;
+		}
+		# Truncate from the right.
+		width > 0 && width < length($0) {
+			print substr($0, length($0) - width + 1, width);
+		}
+		# Pad from left.
+		width > 0 && width > length($0) {
+			for (i = 0; i < width - length($0); i++) {
+				pad = pad 0;
+			}
+			print pad $0;
+		}
+	'
 }
