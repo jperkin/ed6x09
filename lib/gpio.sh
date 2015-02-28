@@ -109,7 +109,7 @@ bin2hex()
 {
 	bin=$1; shift
 
-	printf "%x\n" $(echo "2 i ${bin} p" | dc);
+	printf "0x%x\n" $(echo "2 i ${bin} p" | dc);
 }
 hex2bin()
 {
