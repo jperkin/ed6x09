@@ -63,8 +63,8 @@ databyte=$1; shift
 
 #
 # Set up our data and address pins.  We normally need to configure a clock pin
-# to clock in the data and possibly a pin to enable data writes, but those have
-# been elided to keep things simple.
+# to clock in the data and possibly a pin to enable data writes, but we have
+# ommitted such details in this example to keep things simple.
 #
 datapins=(2 3 4 5 6 7 8 9)
 addrpins=(10 11 12)
